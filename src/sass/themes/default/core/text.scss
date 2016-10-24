@@ -1,0 +1,18 @@
+.thm-material {
+    input {
+        border: solid 1px transparent;
+        border-bottom: 1px solid $border-color;
+    }
+
+    label {
+        color: $text-placeholder-color;
+    }
+
+    input:focus ~ label {
+        color: $blue-500;
+    }
+
+    .bar:before, .bar:after {
+        background: $blue-500;
+    }
+}

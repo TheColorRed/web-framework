@@ -1,0 +1,73 @@
+<html>
+
+<head>
+	<title>Input fields</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../dist/css/main.css">
+	<script src="../dist/js/main.js"></script>
+    <script>
+        $(document).ready(event => {
+            $('button,input[type=button]').val();
+        });
+    </script>
+</head>
+
+<body>
+	<h1>Text fields</h1>
+	<div class="row">
+		<div class="col-6">
+			<div class="txt-group thm-material" id="input-1" label="Material Theme Input 1"></div>
+		</div>
+		<div class="col-6">
+			<div class="txt-group thm-material txt-box" id="input-2" label="Material Theme Input 2"></div>
+		</div>
+		<!--<div class="col-3">
+                <div class="txt-group thm-material txt-nao">
+					<input type="text" required>
+					<label for="">Nao Theme</label>
+					<svg width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+						<path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+					</svg>
+				</div>
+            </div>-->
+	</div>
+	<h1>Buttons</h1>
+
+    <h2>Raised Buttons</h2>
+	<div class="row">
+		<div class="col-6">
+			<input type="button" class="btn-raised test" value="Normal">
+			<input type="button" class="btn-raised" value="Disabled" disabled>
+		</div>
+	</div>
+
+    <h2>Flat Buttons</h2>
+	<div class="row">
+		<div class="col-6">
+			<input type="button" class="btn-flat" value="Normal">
+			<input type="button" class="btn-flat" value="Disabled" disabled>
+		</div>
+	</div>
+
+    <h2>Floating Buttons Flat</h2>
+	<div class="row">
+		<div class="col-6">
+			<button type="button" class="btn-floating"><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating" disabled><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating-lg"><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating-lg" disabled><i class="fa fa-plus"></i></button>
+		</div>
+	</div>
+
+    <h2>Floating Buttons Raised</h2>
+	<div class="row">
+		<div class="col-6">
+			<button type="button" class="btn-floating btn-raised"><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating btn-raised" disabled><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating-lg btn-raised"><i class="fa fa-plus"></i></button>
+			<button type="button" class="btn-floating-lg btn-raised" disabled><i class="fa fa-plus"></i></button>
+		</div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+.btn, input[type=button], input[type=submit], input[type=reset] {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-material {
+    @extend .btn;
+    height: 36px;
+    border: solid 6px transparent;
+    background: $blue-500;
+    color: $white;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.btn-material:hover {
+    background: $blue-700;
+    color: $white;
+}
+.btn-material:active {
+    background: $blue-400;
+    color: $white;
+}
+.btn-material:disabled {
+    color: rgba(0, 0, 0, 0.30);
+    background: transparent;
+    cursor: default;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// Flat buttons
+////////////////////////////////////////////////////////////////////////////////
+.btn-flat {
+    @extend .btn-material;
+    background-color: transparent;
+    color: $blue-500;
+    font-weight: bold;
+}
+.btn-flat:disabled {
+    color: rgba(0, 0, 0, 0.30);
+    background: transparent;
+    cursor: default;
+}
+////////////////////////////////////////////////////////////////////////////////
+/// Raised buttons
+////////////////////////////////////////////////////////////////////////////////
+.btn-raised {
+    @extend .btn-material;
+    box-shadow: 0 0 3px $shadow, 0 3px 5px $shadow;
+}
+.btn-raised:disabled {
+    color: rgba(0, 0, 0, 0.26);
+    background: rgba(0, 0, 0, 0.12);
+    cursor: default;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+/// Floating buttons
+////////////////////////////////////////////////////////////////////////////////
+.btn-floating {
+    @extend .btn-material;
+    border-radius: 100%;
+    background: $blue-500;
+    color: $white;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+}
+
+.btn-floating-lg {
+    @extend .btn-floating;
+    height: 56px;
+    width: 56px;
+    font-size: 30px;
+}
+.btn-floating:disabled {
+    color: rgba(0, 0, 0, 0.30);
+    background: rgba(0, 0, 0, 0.12);
+    cursor: default;
+}

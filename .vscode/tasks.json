@@ -1,0 +1,14 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "sh",
+    "linux": {
+        "command": "sh",
+        "args": ["-c", "tsc && node-sass src/sass/main.scss dist/css/main.css"]
+    },
+    "windows": {
+        "command": "cmd",
+        "args": ["/C", "tsc && node-sass src/sass/main.scss dist/css/main.css"]
+    }
+}
