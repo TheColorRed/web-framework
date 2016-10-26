@@ -2,7 +2,6 @@
 .row .col-4,.row .col-5,.row .col-6,
 .row .col-7,.row .col-8,.row .col-9,
 .row .col-10,.row .col-11,.row .col-12 {
-    padding: 0 5px;
     min-height: 1px;
     float: left;
     position: relative;
@@ -13,10 +12,8 @@
     display: table;
     clear: both;
 }
-.row {
 
-    margin-left: -5px;
-    margin-right: -5px;
+.row {
 
     .col-1{
         width: calc(1 / 12 * 100%);

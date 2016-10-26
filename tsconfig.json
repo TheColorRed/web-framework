@@ -4,5 +4,11 @@
         "outFile": "dist/js/main.js",
         "module": "system",
         "removeComments": true
-    }
+    },
+    "files": [
+        "src/typescript/core/Webby.ts",
+        "src/typescript/core/Dom.ts",
+        "src/typescript/master.ts",
+        "src/typescript/material/material.ts"
+    ]
 }

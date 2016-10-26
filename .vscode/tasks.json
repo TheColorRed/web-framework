@@ -5,10 +5,15 @@
     "command": "sh",
     "linux": {
         "command": "sh",
-        "args": ["-c", "tsc && node-sass src/sass/main.scss dist/css/main.css"]
+        "args": [
+            "-c",
+            "'${workspaceRoot}/.vscode/build.sh'"
+        ]
     },
     "windows": {
-        "command": "cmd",
-        "args": ["/C", "tsc && node-sass src/sass/main.scss dist/css/main.css"]
+        "command": "sh",
+        "args": [
+            "'${workspaceRoot}\\.vscode\\build.sh'"
+        ]
     }
 }
