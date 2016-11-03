@@ -1,0 +1,106 @@
+.thm-material {
+
+    // Text group label
+    label {
+        font-size: 18px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 10px;
+        top: 10px;
+        transition: all 0.2s ease-in-out;
+        color: $text-placeholder-color;
+    }
+
+    // Text group input fields
+    input {
+        font-size: 18px;
+        padding: 10px;
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: solid 1px transparent;
+        border-bottom: 1px solid $border-color;
+    }
+
+    // Focus and valid
+    input:focus ~ label,
+    input:valid ~ label {
+        top: -8px;
+        font-size: 14px;
+    }
+
+    input:focus ~ label {
+        color: $blue-500;
+    }
+
+    // The expanding bar along the bottom of the input
+    .bar { position:relative; display:block; width:100%; }
+    .bar:before, .bar:after {
+        content: '';
+        height: 3px;
+        width: 0;
+        bottom: -1px;
+        position: absolute;
+        transition: 0.2s ease-in-out all;
+        background: $blue-500;
+    }
+    .bar:before {
+        left: 50%;
+    }
+    .bar:after {
+        right: 50%;
+    }
+
+    /* active state */
+    input:focus ~ .bar:before, input:focus ~ .bar:after {
+        width:50%;
+    }
+}
+
+.txt-nao {
+
+    @extend .thm-material;
+    overflow: hidden;
+
+    input {
+        border: 0;
+    }
+
+    input:focus ~ svg, .input-filled svg {
+        stroke: $blue-500;
+        transform: translate3d(-66.6%, 0, 0);
+        stroke-width: 3px;
+    }
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        fill: none;
+        stroke: #757575;
+        pointer-events: none;
+        transition: all 0.7s ease-in-out;
+    }
+}
+
+.txt-box {
+
+    @extend .thm-material;
+    text-align: center;
+
+    input {
+        border: solid 1px #757575;
+        text-align: center;
+    }
+
+    label {
+        right: 10px;
+        left: 10px;
+        margin: auto;
+        background: #ffffff;
+        padding: 0 10px;
+    }
+}
