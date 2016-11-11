@@ -1,0 +1,24 @@
+.thm-material.chk-group {
+
+    // Hide the main checkbox
+    input[type=checkbox] { display:none; }
+    input[type=checkbox] + label { cursor:pointer; }
+    // Stylize the checkbox
+    input[type=checkbox] + label:before {
+        font-family: Ionicons;
+        display: inline-block;
+        width: 1.3em;
+        font-size: 1.3em;
+        vertical-align: middle;
+    }
+    // Unchecked
+    input[type=checkbox] + label:before { content: "\f372"; }
+    // Checked
+    input[type=checkbox]:checked + label:before { content: "\f374"; color: var(--material-primary-500); }
+
+    input[type=checkbox]:disabled + label, input[type=checkbox]:disabled + label:before {
+        color: rgba(0, 0, 0, 0.30);
+        background: transparent;
+        cursor: default;
+    }
+}

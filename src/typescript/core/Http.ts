@@ -8,7 +8,9 @@ class Http {
 
 }
 
-class HttpResponseData { }
+class HttpRequestHeaders {
+
+}
 class HttpHeaders {
     public headers: HttpHeader[] = [];
     public add(key: string, value: string) {
@@ -46,41 +48,43 @@ class HttpHeader {
 
 class HttpResponse {
 
+    public request: HttpRequest;
     public code: number;
     public data: {};
     public headers: HttpHeaders;
 
 }
 
-class HttpRequest {
+class HttpRequest extends Webby {
 
     private _success: Function;
     private _error: Function;
     private _fail: Function;
     private _complete: Function;
-    private _options: { url: string, method?: HttpMethod };
+    private _options: { url: string, method?: HttpMethod, data?: {} };
 
     public constructor(options) {
+        super();
         this._options = options;
         this.sendRequest();
     }
 
-    public success(callback: (response: HttpResponse) => void): this {
+    public success(callback: (response: HttpResponse, request: HttpRequest) => void): this {
         this._success = callback;
         return this;
     }
 
-    public error(callback: (response: HttpResponse) => void): this {
+    public error(callback: (response: HttpResponse, request: HttpRequest) => void): this {
         this._error = callback;
         return this;
     }
 
-    public fail(callback: Function): this {
+    public fail(callback: (request: HttpRequest) => void): this {
         this._fail = callback;
         return this;
     }
 
-    public complete(callback: (response: HttpResponse) => void): this {
+    public complete(callback: (response: HttpResponse, request: HttpRequest) => void): this {
         this._complete = callback;
         return this;
     }
@@ -99,12 +103,12 @@ class HttpRequest {
                         resp.data = req.responseText;
                     }
                     if (req.status == 200 && typeof this._success == 'function') {
-                        this._success(resp);
+                        this._success(resp, this);
                     } else if (typeof this._error == 'function') {
-                        this._error(resp);
+                        this._error(resp, this);
                     }
                     if (typeof this._complete == 'function') {
-                        this._complete(resp);
+                        this._complete(resp, this);
                     }
                 }
             });
@@ -112,9 +116,9 @@ class HttpRequest {
                 this._options.method = HttpMethod.Get;
             }
             req.open(this._options.method == HttpMethod.Get ? 'get' : 'post', this._options.url)
-            req.send();
+            req.send(this._options.method == HttpMethod.Post ? this.stringify(this._options.data) : '');
         } catch (e) {
-            this._fail();
+            this._fail(this);
         }
     }
 

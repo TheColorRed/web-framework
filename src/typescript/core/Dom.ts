@@ -45,6 +45,10 @@ class DOMWebby extends Webby {
         return this;
     }
 
+    public on(evt: string, callback: (event: Event) => void): this {
+        return this.each(item => { this.el(item).addEventListener(evt, callback); });
+    }
+
     public select(selector: any): this {
         if (typeof selector == 'string') {
             let items = document.querySelectorAll(selector) as NodeListOf<HTMLElement>;
@@ -139,6 +143,10 @@ class DOMWebby extends Webby {
         });
         this.elements = newList;
         return this;
+    }
+
+    public remove(): this {
+        return this.each(item => { let el = this.el(item); el.parentNode.removeChild(el); });
     }
 
     public empty(): this {

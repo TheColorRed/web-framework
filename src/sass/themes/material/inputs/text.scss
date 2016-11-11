@@ -1,4 +1,4 @@
-.thm-material {
+.thm-material.txt-group {
 
     // Text group label
     label {
@@ -9,7 +9,7 @@
         left: 10px;
         top: 10px;
         transition: all 0.2s ease-in-out;
-        color: $text-placeholder-color;
+        color: var(--text-placeholder-color);
     }
 
     // Text group input fields
@@ -20,7 +20,7 @@
         width: 100%;
         background: transparent;
         border: solid 1px transparent;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
     }
 
     // Focus and valid
@@ -31,7 +31,7 @@
     }
 
     input:focus ~ label {
-        color: $blue-500;
+        color: var(--material-primary-500);
     }
 
     // The expanding bar along the bottom of the input
@@ -43,7 +43,7 @@
         bottom: -1px;
         position: absolute;
         transition: 0.2s ease-in-out all;
-        background: $blue-500;
+        background: var(--material-primary-500);
     }
     .bar:before {
         left: 50%;
@@ -68,7 +68,7 @@
     }
 
     input:focus ~ svg, .input-filled svg {
-        stroke: $blue-500;
+        stroke: var(--material-primary-500);
         transform: translate3d(-66.6%, 0, 0);
         stroke-width: 3px;
     }

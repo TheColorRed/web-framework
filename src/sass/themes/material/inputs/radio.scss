@@ -1,0 +1,24 @@
+.thm-material.rdo-group {
+
+    // Hide the main checkbox
+    input[type=radio] { display:none; }
+    input[type=radio] + label { cursor:pointer; }
+    // Stylize the checkbox
+    input[type=radio] + label:before {
+        font-family: Ionicons;
+        display: inline-block;
+        width: 1.3em;
+        font-size: 1.3em;
+        vertical-align: middle;
+    }
+    // Unchecked
+    input[type=radio] + label:before { content: "\f3a6"; }
+    // Checked
+    input[type=radio]:checked + label:before { content: "\f3a7"; color: var(--material-primary-500); }
+
+    input[type=radio]:disabled + label, input[type=radio]:disabled + label:before {
+        color: rgba(0, 0, 0, 0.30);
+        background: transparent;
+        cursor: default;
+    }
+}

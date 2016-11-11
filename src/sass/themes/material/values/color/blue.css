@@ -1,0 +1,15 @@
+:root {
+    --border-color: #757575;
+    --material-primary-50: #E3F2FD;
+    --material-primary-100: #BBDEFB;
+    --material-primary-200: #90CAF9;
+    --material-primary-300: #64B5F6;
+    --material-primary-400: #42A5F5;
+    --material-primary-500: #2196f3;
+    --material-primary-600: #1E88E5;
+    --material-primary-700: #1976D2;
+    --material-primary-800: #1565C0;
+    --material-primary-900: #0D47A1;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --text-placeholder-color: #999999;
+}

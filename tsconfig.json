@@ -3,7 +3,8 @@
         "target": "es6",
         "outFile": "dist/js/main.js",
         "module": "system",
-        "removeComments": true
+        "removeComments": true,
+        "declaration": true
     },
     "files": [
         "src/typescript/core/Webby.ts",

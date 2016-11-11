@@ -1,20 +1,20 @@
 .btn-material {
     height: 36px;
     border: solid 6px transparent;
-    background: $blue-500;
-    color: $white;
+    background: var(--material-primary-500);
+    color: #ffffff;
     border-radius: 2px;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
 }
 .btn-material:hover {
-    background: $blue-700;
-    color: $white;
+    background: var(--material-primary-700);
+    color: #ffffff;
 }
 .btn-material:active {
-    background: $blue-400;
-    color: $white;
+    background: var(--material-primary-400);
+    color: #ffffff;
 }
 .btn-material:disabled {
     color: rgba(0, 0, 0, 0.30);
@@ -28,7 +28,7 @@
 .btn-flat {
     @extend .btn-material;
     background-color: transparent;
-    color: $blue-500;
+    color: var(--material-primary-500);
     font-weight: bold;
 }
 .btn-flat:disabled {
@@ -41,7 +41,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 .btn-raised {
     @extend .btn-material;
-    box-shadow: 0 0 3px $shadow, 0 3px 5px $shadow;
+    /*box-shadow: 0 0 5px $shadow, 0 2px 2px $shadow;*/
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08)
 }
 .btn-raised:disabled {
     color: rgba(0, 0, 0, 0.26);
@@ -55,8 +56,8 @@
 .btn-floating {
     @extend .btn-material;
     border-radius: 100%;
-    background: $blue-500;
-    color: $white;
+    background: var(--material-primary-500);
+    color: #ffffff;
     height: 40px;
     width: 40px;
     font-size: 20px;
