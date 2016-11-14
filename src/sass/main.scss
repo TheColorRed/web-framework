@@ -9,8 +9,12 @@
 // @import 'themes/default/main';
 
 // The core framework
-@import 'core/grid/grid';
-@import 'core/inputs/text';
-@import 'core/inputs/checkbox';
-@import 'core/inputs/radio';
-@import 'core/inputs/button';
+@import 'core/grid/grid.scss';
+@import 'core/misc/hr.scss';
+@import 'core/misc/helper.scss';
+@import 'core/misc/header.scss';
+@import 'core/inputs/select.scss';
+@import 'core/inputs/text.scss';
+@import 'core/inputs/checkbox.scss';
+@import 'core/inputs/radio.scss';
+@import 'core/inputs/button.scss';

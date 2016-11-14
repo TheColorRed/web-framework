@@ -5,13 +5,14 @@ class DOMWebby extends Webby {
 
     public el(item: DOMWebby = null): HTMLElement {
         let i: DOMWebby = item === null ? this : item;
-        if (i instanceof HTMLElement) {
+        if (i && i instanceof HTMLElement) {
             return i;
-        } else if (i.element instanceof HTMLElement) {
+        } else if (i.element && i.element instanceof HTMLElement) {
             return i.element;
-        } else if (i.elements[0].element instanceof HTMLElement) {
+        } else if (i.elements[0] && i.elements[0].element instanceof HTMLElement) {
             return i.elements[0].element;
         }
+        return null;
     }
 
     public each(callback: (item: DOMWebby) => void): this {
@@ -80,12 +81,22 @@ class DOMWebby extends Webby {
         return this.each(item => { this.el(item).insertAdjacentHTML('beforeend', html); });
     }
 
-    public html(html: string): this {
-        return this.each(item => { this.el(item).innerHTML = html; });
+    public html(html?: string): this | string {
+        if (arguments.length == 1) {
+            return this.each(item => { this.el(item).innerHTML = html; });
+        } else {
+            let el = this.el(this);
+            return el instanceof HTMLElement ? el.innerHTML : '';
+        }
     }
 
-    public text(text: string): this {
-        return this.each(item => { this.el(item).innerText = text; });
+    public text(text?: string): this | string {
+        if (arguments.length == 1) {
+            return this.each(item => { this.el(item).innerText = text; });
+        } else {
+            let el = this.el(this);
+            return el instanceof HTMLElement ? el.innerText : '';
+        }
     }
 
     public addClass(classes: string): this {
@@ -130,7 +141,7 @@ class DOMWebby extends Webby {
         return this.each(item => { this.el(item).style[key] = value; });
     }
 
-    public find(key: string) {
+    public find(key: string): this {
         let newList: DOMWebby[] = [];
         this.each(item => {
             let items = this.el(item).querySelectorAll(key) as NodeListOf<HTMLElement>;
@@ -138,7 +149,6 @@ class DOMWebby extends Webby {
                 let w = new DOMWebby;
                 w.element = items[i];
                 newList.push(w);
-                // newList.push($(items[i]));
             }
         });
         this.elements = newList;
@@ -157,7 +167,7 @@ class DOMWebby extends Webby {
         return this.each(item => { this.el(item).innerText = ''; });
     }
 
-    public val(value: string): this | string {
+    public val(value?: string): this | string {
         if (arguments.length == 1) {
             return this.each(item => { (this.el(item) as HTMLInputElement).value = value; });
         } else {
@@ -167,5 +177,17 @@ class DOMWebby extends Webby {
 
     public disable(): this {
         return this.each(item => { this.el(item).setAttribute('disabled', ''); });
+    }
+
+    public last(): DOMWebby {
+        return this.elements[this.elements.length - 1];
+    }
+
+    public first(): DOMWebby {
+        return this.elements[0];
+    }
+
+    public matches(element: DOMWebby): boolean {
+        return this.el(this) == this.el(element);
     }
 }

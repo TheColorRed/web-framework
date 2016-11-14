@@ -3,8 +3,9 @@
 @import 'values/color/blue';
 @import 'values/margin';
 
-@import 'inputs/button';
-@import 'inputs/text';
-@import 'inputs/checkbox';
-@import 'inputs/radio';
-@import 'grid/grid';
+@import 'inputs/button.scss';
+@import 'inputs/text.scss';
+@import 'inputs/select.scss';
+@import 'inputs/checkbox.scss';
+@import 'inputs/radio.scss';
+@import 'grid/grid.scss';

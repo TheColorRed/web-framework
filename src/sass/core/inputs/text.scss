@@ -8,3 +8,12 @@
         color: #999999;
     }
 }
+
+input[type=text] {
+    display: inline-block;
+    width: 100%;
+    background: transparent;
+    border: solid 1px #dddddd;
+    padding: 10px;
+    border-radius: 3px;
+}
